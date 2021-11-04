@@ -443,7 +443,7 @@ namespace caf
   std::string VectorProxyBase::NName() const
   {
     const int idx = fName.find_last_of('.');
-    if (idx != std::string::npos)
+    if (idx != static_cast<int>(std::string::npos))
       // foo.bar.baz -> foo.bar.nbaz
       return fName.substr(0, idx)+".n"+fName.substr(idx+1);
     else
@@ -489,7 +489,7 @@ namespace caf
       already.insert(key);
       std::cout << std::endl;
       std::cout << "Warning: field '" << key << "' does not exist in file. "
-                << "Falling back to '" << StripSubscripts(fSize->Name()) << "' which is less efficient. "
+//                << "Falling back to '" << StripSubscripts(fSize->Name()) << "' which is less efficient. "
                 << "Consider updating StandardRecord to include '" << key << "'." << std::endl;
       std::cout << std::endl;
     }
